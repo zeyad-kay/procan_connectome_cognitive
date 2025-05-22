@@ -1,0 +1,16 @@
+hydra-core
+imbalanced-learn
+matplotlib
+matplotlib-inline
+numpy
+omegaconf
+pandas
+plotly
+pre-commit
+python-dotenv
+scikit-learn
+scipy
+seaborn
+wandb
+xgboost
+git+https://github.com/mklasby/ingeniator.git 

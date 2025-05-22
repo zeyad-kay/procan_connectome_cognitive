@@ -1,0 +1,13 @@
+.vscode
+*.egg-info
+__pycache__
+*.out
+*.predict
+.env
+data
+outputs/**
+wandb/**
+**.pkl
+**.csv
+**.png
+.venv

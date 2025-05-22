@@ -1,0 +1,33 @@
+program: procan_connectome/main.py
+method: grid
+entity: zeyadk-university-of-calgary-in-alberta
+project: procan
+name: cog_fmri_dti_baseline_new_data
+metric:
+  goal: maximize
+  name: accuracy
+parameters:
+  model:
+    values: [rf]
+  dataset:
+    values: [cross_sectional]
+  timepoint:
+    values: [0]
+  drop_na:
+    values: [False]
+  random_seed:
+    values: [8746, 2078, 42, 12, 32, 4, 8, 23, 98, 1223]
+  loocv.balance_classes:
+    values: [True, False]
+  pipeline.standard_scale:
+    values: [True, False]
+  pipeline.rfecv:
+    values: [True]
+  pipeline.power_transform:
+    values: [True, False]
+
+command:
+  - ${env}
+  - python
+  - ${program}
+  - ${args_no_hyphens}
