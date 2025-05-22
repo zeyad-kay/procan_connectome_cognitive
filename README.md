@@ -20,7 +20,6 @@ HYDRA_FULL_ERROR=1
 ```sh
 $  wandb sweep configs/sweep.yaml
 ...
-wandb: Creating sweep from: configs\sweep.yaml
 wandb: Creating sweep with ID: <SWEEP_ID>
 ...
 
