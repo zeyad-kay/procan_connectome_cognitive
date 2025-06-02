@@ -13,13 +13,13 @@ def init_wandb(cfg: omegaconf.DictConfig):
         name=cfg.wandb.name,
         entity=cfg.wandb.entity,
         project=cfg.wandb.project,
-        dir=pathlib.Path(cfg.paths.data),
+        dir=cfg.wandb.dir,
     )
     return run
 
 
 def save_model(cfg, model):
-    f_path = pathlib.Path(cfg.paths.logs) / f"{cfg.wandb.name}.pkl"
+    f_path = pathlib.Path(wandb.run.dir).parent / "logs" / f"{cfg.wandb.name}.pkl"
     with open(f_path, "wb") as handle:
         pickle.dump(model, handle)
     art = wandb.Artifact(name=cfg.wandb.name, type="model")
@@ -27,3 +27,4 @@ def save_model(cfg, model):
     print(f"artifact path: {f_path}")
     wandb.log_artifact(art)
     return
+

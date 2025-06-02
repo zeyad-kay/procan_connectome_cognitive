@@ -30,7 +30,7 @@ def parse_wandb_results(project_results_csv: str) -> pd.DataFrame:
 if __name__ == "__main__":
     dotenv.load_dotenv("../../.env")
     start_time = datetime.now()
-    SWEEP = "4tleci5g"
+    SWEEP = "ez9o8lkz"
     print("Downloading runs...")
     # api = wandb.Api(timeout=30)
     api = wandb.Api()

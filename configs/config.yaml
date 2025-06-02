@@ -3,10 +3,10 @@ SMOKE_TEST: False
 wandb:
   name: "${model}_${dataset}_gs${loocv.perform_grid_search}_ss${pipeline.standard_scale}\
     _pt${pipeline.power_transform}_rfecv${pipeline.rfecv}_balanced${loocv.balance_classes}_seed${random_seed}"
-  entity: zeyadk-university-of-calgary-in-alberta
-  project: procan
+  entity: ${oc.env:WANDB_ENTITY}
+  project: ${oc.env:WANDB_PROJECT}
   start_method: thread
-  dir: ${paths.data}/wandb
+  dir: ${paths.root}
 
 # Select from xgb, rf, svc
 model: rf
@@ -16,7 +16,7 @@ timepoint: 0
 n_jobs: -1
 random_seed: 42
 # Drop na data, may only be False for xgb model
-drop_na: True
+drop_na: False
 # Use global + modular interaction data only!
 global_only: False
 
@@ -39,10 +39,7 @@ pipeline:
 
 paths:
   root: ${oc.env:BASE_PATH}
-  data: ${paths.root}/data
-  t12_data: ${paths.data}/t12-updated
-  plot: ${paths.root}/plots
-  logs: ${paths.data}/logs
+  data: ${paths.root}/data/raw_data/t12-updated
 
 labels_dict:
-  { 0: "HC", 1: "Stage_0", 2: "Stage_1a", 3: "Stage_1b", 4: "Transition" }
+  { 0: "Healthy Controls", 1: "Stage 0", 2: "Stage 1a", 3: "Stage 1b", 4: "Transition" }

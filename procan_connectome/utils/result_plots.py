@@ -7,8 +7,7 @@ from sklearn.metrics import confusion_matrix
 
 
 def plot_all_figures(cfg, results_df, feature_importances_df, grid_search_df=None):
-    plt.style.use(pathlib.Path(cfg.paths.root) / "plt_plot_style.mplstyle")
-    plot_path = pathlib.Path(cfg.paths.plot) / f"{cfg.wandb.name}"
+    plot_path = pathlib.Path(wandb.run.dir).parent / "logs"
     if not plot_path.is_dir():
         plot_path.mkdir(parents=True, exist_ok=False)
 
@@ -72,8 +71,6 @@ def plot_clusters_2D(
 ):
     if custom_label_map is not None:
         df[custom_label_name] = df[label_col_name].map(custom_label_map)
-    if plot_path is not None:
-        plt.style.use(os.path.join(plot_path, "plt_plot_style.mplstyle"))
     DIMS = [15, 10]
     fig, ax = plt.subplots(figsize=DIMS)
     sns.scatterplot(x=x, y=y, hue=hue, data=df, ax=ax)
@@ -137,3 +134,4 @@ def plot_feature_importance(
         )
         return f_name
     return fig
+

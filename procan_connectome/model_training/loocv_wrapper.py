@@ -66,7 +66,7 @@ class LOOCV_Wrapper(BaseEstimator):
         self.encode_labels = encode_labels
         self.save_feature_importance = save_feature_importance
         self.random_seed = random_seed
-        self.__logger = logging.getLogger(__file__)
+        self.__logger = logging.getLogger("loocv")
         self.smoke_test = smoke_test
         if smoke_test:
             self.__logger.warning("RUNNING SMOKE TEST")

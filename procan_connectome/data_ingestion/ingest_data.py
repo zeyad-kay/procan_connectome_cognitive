@@ -4,12 +4,12 @@ import math
 import pathlib
 from functools import partial, reduce
 
-def get_dataset(dataset_type="cross_sectional", drop_na=True, global_only=False, timepoint=0, dataset_paths=None):
+def get_dataset(dataset_type="cross_sectional", drop_na=True, global_only=False, timepoint=0, dataset_path=None):
     index_col = ["Subject", "Site", "Time"]
     if dataset_type != "cross_sectional":
         index_col.pop(-1)
     df = get_combat_dataset(
-        dataset_paths, index_col=index_col, drop_nan=drop_na, global_only=global_only
+        dataset_path, index_col=index_col, drop_nan=drop_na, global_only=global_only
     )
     available_datasets = {
         "cross_sectional": get_cross_sectional_dataset,
@@ -21,20 +21,20 @@ def get_dataset(dataset_type="cross_sectional", drop_na=True, global_only=False,
     return available_datasets[dataset_type](df, timepoint)
 
 
-def get_combat_dataset(dataset_paths, index_col, drop_nan, global_only):
+def get_combat_dataset(dataset_path, index_col, drop_nan, global_only):
     col_mapping = {
         "data_combat.Subject": "Subject",
         "data_combat.Time": "Time",
         "data_combat.Site": "Site",
     }
     fun_df = get_data_by_parent_dir(
-        dataset_paths / "fMRI", "fun", col_mapping, global_only
+        dataset_path / "fMRI", "fun", col_mapping, global_only
     )
     struct_df = get_data_by_parent_dir(
-        dataset_paths / "DTI", "str", col_mapping, global_only
+        dataset_path / "DTI", "str", col_mapping, global_only
     )
     cognitive_df = get_data_by_parent_dir(
-        dataset_paths / "cognitive", "cog", col_mapping, global_only
+        dataset_path / "cognitive", "cog", col_mapping, global_only
     )
 
 

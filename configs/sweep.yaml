@@ -1,8 +1,5 @@
 program: procan_connectome/main.py
 method: grid
-entity: zeyadk-university-of-calgary-in-alberta
-project: procan
-name: cog_fmri_dti_baseline_new_data
 metric:
   goal: maximize
   name: accuracy
