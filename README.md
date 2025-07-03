@@ -1,6 +1,10 @@
 # Prediction Modeling in Transdiagnostic Risk: Results from the PROCAN study
 
+This repo contains the code for the machine learning analysis section of the paper. This work is an extension of previously published work by <a href=https://link.springer.com/article/10.1007/s11682-024-00953-z>Shakeel et al.</a> We reuse most of the code from the previous work, which can be found <a href=https://github.com/mklasby/brain-connectome-longitudinal>here</a>.
+
 ## Setup
+
+The data used in this study may be available upon request.
 
 1. Initialize a virtual environment:
 ```sh
@@ -32,4 +36,8 @@ wandb: Creating sweep with ID: <SWEEP_ID>
 ...
 $ source run_sweep.sh <SWEEP_ID>
 ```
-5. Summarize the results by running the `sweep_summary.ipynb` notebook.
+5. Download sweep results from wandb:
+```sh
+$ python procan_connectome/utils/download_wandb_run_table.py
+```   
+6. Summarize the results and generate figures by running the `sweep_summary.ipynb` notebook.
