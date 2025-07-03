@@ -1,10 +1,52 @@
 # Prediction Modeling in Transdiagnostic Risk: Results from the PROCAN study
 
-This repo contains the code for the machine learning analysis section of the paper. This work is an extension of previously published work by <a href=https://link.springer.com/article/10.1007/s11682-024-00953-z>Shakeel et al.</a> We reuse most of the code from the previous work, which can be found <a href=https://github.com/mklasby/brain-connectome-longitudinal>here</a>.
+This repo contains the code for the machine learning analysis section of the paper. This work is an extension of prior work by <a href=https://link.springer.com/article/10.1007/s11682-024-00953-z>Shakeel et al.</a> We reuse most of the code from the prior work, which can be found <a href=https://github.com/mklasby/brain-connectome-longitudinal>here</a>.
+
+## Data
+
+The data used in this study may be available upon request. The imaging and behavioral data span multiple csv files. The directory structure should be:
+```
+data/raw_data/t12-updated/
+├── DTI
+│   ├── DTI_ID_CV.csv
+│   ├── DTI_ID_CV.sav
+│   ├── Density_intensity
+│   │   └── Harmzd_DTI_density_intensity.csv
+│   ├── Global
+│   │   └── Harmzd_DTI_global.csv
+│   ├── Harmzd_DTI_Sync.csv
+│   ├── Modular_interactions
+│   │   └── Harmzd_DTI_MI.csv
+│   └── Nodal
+│       ├── Harmzd_DTI_Bc.csv
+│       ├── Harmzd_DTI_Dc.csv
+│       ├── Harmzd_DTI_Ncc.csv
+│       ├── Harmzd_DTI_Ne.csv
+│       ├── Harmzd_DTI_Nle.csv
+│       ├── Harmzd_DTI_Nsp.csv
+│       └── Harmzd_DTI_Pc.csv
+├── cognitive
+│   └── cognitive.csv
+└── fMRI
+    ├── Density_intensity
+    │   └── Harmzd_fMRI_density_intensity.csv
+    ├── Global
+    │   └── Harmzd_fMRI_global.csv
+    ├── Harmzd_fMRI_Sync.csv
+    ├── Modular_interactions
+    │   └── Harmzd_fMRI_MI.csv
+    ├── Nodal
+    │   ├── Harmzd_fMRI_Bc.csv
+    │   ├── Harmzd_fMRI_Dc.csv
+    │   ├── Harmzd_fMRI_Ncc.csv
+    │   ├── Harmzd_fMRI_Ne.csv
+    │   ├── Harmzd_fMRI_Nle.csv
+    │   ├── Harmzd_fMRI_Nsp.csv
+    │   └── Harmzd_fMRI_Pc.csv
+    └── fMRI_ID_CV_HM.csv
+```
 
 ## Setup
-
-The data used in this study may be available upon request.
 
 1. Initialize a virtual environment:
 ```sh
